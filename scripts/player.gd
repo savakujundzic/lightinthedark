@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @onready var body = $"."
 
-const SPEED = 200.0
+const SPEED = 170.0
 const JUMP_VELOCITY = -250
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
