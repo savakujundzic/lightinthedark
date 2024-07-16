@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmejvnwp2d7j6"]
+
+[ext_resource type="PackedScene" uid="uid://cgj7ajgahhvrx" path="res://scenes/light.tscn" id="1_hovl0"]
+[ext_resource type="PackedScene" uid="uid://cpecxt4yjcnjx" path="res://scenes/player.tscn" id="1_iwywh"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_stk7m"]
+[ext_resource type="PackedScene" uid="uid://bo64u6wmcqtkf" path="res://scenes/dark.tscn" id="2_fiuhx"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_stk7m")
+
+[node name="player" parent="." instance=ExtResource("1_iwywh")]
+position = Vector2(93, 254)
+
+[node name="Light" parent="." instance=ExtResource("1_hovl0")]
+
+[node name="dark" parent="." instance=ExtResource("2_fiuhx")]
+visible = false
+
+[connection signal="coll_changed" from="." to="player" method="_on_main_coll_changed"]
