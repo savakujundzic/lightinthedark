@@ -26,8 +26,10 @@ position_smoothing_enabled = true
 
 [node name="Off" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ciw45")
+volume_db = -25.0
 bus = &"SFX"
 
 [node name="On" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ir2c4")
+volume_db = -25.0
 bus = &"SFX"
