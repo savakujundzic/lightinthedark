@@ -1356,8 +1356,8 @@ layer_1/tile_data = PackedInt32Array(1114161, 262144, 1, 1114163, 393216, 1, 111
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -2
-offset_left = -680.0
-offset_top = -433.0
+offset_left = -2314.0
+offset_top = -2142.0
 offset_right = 7333.0
 offset_bottom = 1238.0
 color = Color(0, 0, 0, 1)

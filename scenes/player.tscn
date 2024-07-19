@@ -1,28 +1,103 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpecxt4yjcnjx"]
+[gd_scene load_steps=13 format=3 uid="uid://cpecxt4yjcnjx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4l1kh"]
-[ext_resource type="Texture2D" uid="uid://66qmkhmq4j0b" path="res://icon.svg" id="1_h3aif"]
+[ext_resource type="Texture2D" uid="uid://blk8ujyugfmb" path="res://mainchar/SuperGodot.png" id="2_4p3p2"]
 [ext_resource type="AudioStream" uid="uid://dbjmdrtlp2xmm" path="res://downloads/music/OffSound.wav" id="3_ciw45"]
 [ext_resource type="AudioStream" uid="uid://pheg578dioge" path="res://downloads/music/OnSound.wav" id="4_ir2c4"]
+[ext_resource type="AudioStream" uid="uid://dhddnd383h6rm" path="res://music/Flipside (Light).wav" id="5_8ejj2"]
+[ext_resource type="AudioStream" uid="uid://bcjkwnc7or0sk" path="res://music/Flipside (Dark).wav" id="6_7c864"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afena"]
-size = Vector2(26, 25.5)
+size = Vector2(15, 23)
+
+[sub_resource type="Animation" id="Animation_axfjl"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_fjxdg"]
+resource_name = "jump"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_xswvo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_uu8d6"]
+resource_name = "left"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dor5f"]
+_data = {
+"RESET": SubResource("Animation_xswvo"),
+"idle": SubResource("Animation_axfjl"),
+"jump": SubResource("Animation_fjxdg"),
+"run": SubResource("Animation_uu8d6")
+}
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_4l1kh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(8.34465e-07, 5.36442e-07)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_h3aif")
+texture = ExtResource("2_4p3p2")
+hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_afena")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(62, -34)
 zoom = Vector2(2.7, 2.7)
-position_smoothing_enabled = true
 
 [node name="Off" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ciw45")
@@ -33,3 +108,18 @@ bus = &"SFX"
 stream = ExtResource("4_ir2c4")
 volume_db = -25.0
 bus = &"SFX"
+
+[node name="lightmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8ejj2")
+volume_db = -30.0
+autoplay = true
+
+[node name="darkmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7c864")
+volume_db = -30.0
+autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dor5f")
+}
