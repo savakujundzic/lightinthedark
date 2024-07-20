@@ -59,7 +59,7 @@ shape = SubResource("RectangleShape2D_kva4y")
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(2772, 233)
+position = Vector2(2921, 231)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="DeathArea" type="Area2D" parent="."]
