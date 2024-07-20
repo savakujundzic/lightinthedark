@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://idvbwgbvbuuo"]
+[gd_scene load_steps=3 format=3 uid="uid://idvbwgbvbuuo"]
 
 [ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_peijm"]
+[ext_resource type="AudioStream" uid="uid://cl2ckqee64tn" path="res://music/Flipside Intro.wav" id="2_t16ol"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -67,5 +68,10 @@ theme_override_font_sizes/font_size = 40
 text = "Programming: hvlsavo,
             Noel Emeregilda
                      Music: Mika"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_t16ol")
+volume_db = -30.0
+autoplay = true
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
