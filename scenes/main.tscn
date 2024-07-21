@@ -15,7 +15,7 @@ size = Vector2(100680, 100)
 script = ExtResource("1_stk7m")
 
 [node name="player" parent="." instance=ExtResource("1_iwywh")]
-position = Vector2(98, 192)
+position = Vector2(3114, 154)
 
 [node name="Light" parent="." instance=ExtResource("1_hovl0")]
 
@@ -60,6 +60,12 @@ shape = SubResource("RectangleShape2D_kva4y")
 light_mask = 0
 visibility_layer = 0
 position = Vector2(2921, 231)
+shape = SubResource("RectangleShape2D_kva4y")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Checkpoint"]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(3980, 106)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="DeathArea" type="Area2D" parent="."]

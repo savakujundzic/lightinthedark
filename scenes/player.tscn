@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://bcjkwnc7or0sk" path="res://music/Flipside (Dark).wav" id="6_7c864"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_afena"]
-size = Vector2(15, 23)
+size = Vector2(15, 22)
 
 [sub_resource type="Animation" id="Animation_xswvo"]
 length = 0.001
@@ -91,7 +91,7 @@ texture = ExtResource("2_4p3p2")
 hframes = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_afena")
 
 [node name="Camera2D" type="Camera2D" parent="."]

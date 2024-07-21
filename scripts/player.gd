@@ -25,7 +25,6 @@ func _ready():
 	checkpoint = body.global_transform.origin
 
 func _physics_process(delta):
-	print(hp)
 	if hp == 2:
 		body.modulate.a = transparency - 0.3
 	if hp == 1:
@@ -91,10 +90,8 @@ func _on_main_coll_changed():
 func _on_checkpoint_body_entered(body):
 	if body is Player:
 		checkpoint = body.global_transform.origin
-		print(checkpoint)
 
 func _on_death_area_body_entered(body):
 	if body is Player:
 		hp = hp - 1
 		body.global_transform.origin = checkpoint 
-		print("DEATH")
