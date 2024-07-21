@@ -7,9 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://dhddnd383h6rm" path="res://music/Flipside (Light).wav" id="5_8ejj2"]
 [ext_resource type="AudioStream" uid="uid://bcjkwnc7or0sk" path="res://music/Flipside (Dark).wav" id="6_7c864"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_afena"]
-size = Vector2(15, 22)
-
 [sub_resource type="Animation" id="Animation_xswvo"]
 length = 0.001
 tracks/0/type = "value"
@@ -82,6 +79,9 @@ _data = {
 "run": SubResource("Animation_uu8d6")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1rlj"]
+size = Vector2(15, 22)
+
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_4l1kh")
 
@@ -89,10 +89,6 @@ script = ExtResource("1_4l1kh")
 position = Vector2(8.34465e-07, 5.36442e-07)
 texture = ExtResource("2_4p3p2")
 hframes = 10
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_afena")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(62, -34)
@@ -122,3 +118,7 @@ autoplay = true
 libraries = {
 "": SubResource("AnimationLibrary_dor5f")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_f1rlj")

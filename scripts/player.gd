@@ -4,12 +4,12 @@ class_name Player extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
 @onready var checkpoint:Vector2
+@onready var fireworks = $"../fireworks"
+@onready var fireworksound = $fireworksound
 
 const SPEED = 170.0
 const JUMP_VELOCITY = -250
 var animdirection = "left"
-var hp = 3
-var transparency = 1
 # Switch SFX
 @onready var offSFX = $Off
 @onready var onSFX = $On
@@ -25,12 +25,6 @@ func _ready():
 	checkpoint = body.global_transform.origin
 
 func _physics_process(delta):
-	if hp == 2:
-		body.modulate.a = transparency - 0.3
-	if hp == 1:
-		body.modulate.a = transparency - 0.6
-	if hp == 0:
-		get_tree().change_scene_to_file("res://scenes/gameover.tscn")
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -93,5 +87,8 @@ func _on_checkpoint_body_entered(body):
 
 func _on_death_area_body_entered(body):
 	if body is Player:
-		hp = hp - 1
 		body.global_transform.origin = checkpoint 
+
+func _on_win_area_body_entered(body):
+	if body is Player:
+		get_tree().change_scene_to_file("res://scenes/fireworks.tscn")

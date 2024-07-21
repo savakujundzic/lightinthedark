@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmejvnwp2d7j6"]
+[gd_scene load_steps=8 format=3 uid="uid://cmejvnwp2d7j6"]
 
 [ext_resource type="PackedScene" uid="uid://cgj7ajgahhvrx" path="res://scenes/light.tscn" id="1_hovl0"]
 [ext_resource type="PackedScene" uid="uid://cpecxt4yjcnjx" path="res://scenes/player.tscn" id="1_iwywh"]
@@ -11,11 +11,14 @@ size = Vector2(23.5, 46.375)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrv6"]
 size = Vector2(100680, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yugdq"]
+size = Vector2(53, 48)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_stk7m")
 
 [node name="player" parent="." instance=ExtResource("1_iwywh")]
-position = Vector2(3114, 154)
+position = Vector2(89, 225)
 
 [node name="Light" parent="." instance=ExtResource("1_hovl0")]
 
@@ -79,6 +82,14 @@ visibility_layer = 4
 position = Vector2(49660, 805.5)
 shape = SubResource("RectangleShape2D_ovrv6")
 
+[node name="WinArea" type="Area2D" parent="."]
+position = Vector2(3995, 91)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
+position = Vector2(-11.5, 14)
+shape = SubResource("RectangleShape2D_yugdq")
+
 [connection signal="coll_changed" from="." to="player" method="_on_main_coll_changed"]
 [connection signal="body_entered" from="Checkpoint" to="player" method="_on_checkpoint_body_entered"]
 [connection signal="body_entered" from="DeathArea" to="player" method="_on_death_area_body_entered"]
+[connection signal="body_entered" from="WinArea" to="player" method="_on_win_area_body_entered"]
