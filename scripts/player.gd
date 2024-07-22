@@ -4,6 +4,7 @@ class_name Player extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var sprite_2d = $Sprite2D
 @onready var checkpoint:Vector2
+@onready var startPosition: Vector2
 @onready var fireworks = $"../fireworks"
 @onready var fireworksound = $fireworksound
 
@@ -22,7 +23,8 @@ var animdirection = "left"
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
-	checkpoint = body.global_transform.origin
+	startPosition = body.global_transform.origin
+
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -70,12 +72,19 @@ func _on_main_coll_changed():
 		body.collision_mask = 1
 	
 	if current_mask == 1:
-		darkmusic.stream_paused = true
-		lightmusic.stream_paused = false
+		#darkmusic.stream_paused = true
+		#lightmusic.stream_paused = false
+		
+		darkmusic.volume_db = -80
+		lightmusic.volume_db = -30
+	
 		onSFX.play()
 	elif current_layer == 2: 
-		darkmusic.stream_paused = false
-		lightmusic.stream_paused = true
+		#darkmusic.stream_paused = false
+		#lightmusic.stream_paused = true
+		
+		darkmusic.volume_db = -30
+		lightmusic.volume_db = -80
 		offSFX.play()
 	
 
@@ -87,8 +96,8 @@ func _on_checkpoint_body_entered(body):
 
 func _on_death_area_body_entered(body):
 	if body is Player:
-		body.global_transform.origin = checkpoint 
+		body.global_transform.origin = checkpoint + Vector2(0,-500)
 
 func _on_win_area_body_entered(body):
 	if body is Player:
-		get_tree().change_scene_to_file("res://scenes/fireworks.tscn")
+		body.global_transform.origin = startPosition

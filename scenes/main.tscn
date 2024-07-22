@@ -6,19 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://bo64u6wmcqtkf" path="res://scenes/dark.tscn" id="2_fiuhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kva4y"]
-size = Vector2(23.5, 46.375)
+size = Vector2(66, 51.1875)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrv6"]
 size = Vector2(100680, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yugdq"]
-size = Vector2(53, 48)
+size = Vector2(37, 48)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_stk7m")
 
 [node name="player" parent="." instance=ExtResource("1_iwywh")]
-position = Vector2(89, 225)
+position = Vector2(90, -472)
 
 [node name="Light" parent="." instance=ExtResource("1_hovl0")]
 
@@ -35,6 +35,12 @@ visibility_layer = 0
 position = Vector2(386, 247)
 shape = SubResource("RectangleShape2D_kva4y")
 
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Checkpoint"]
+light_mask = 0
+visibility_layer = 0
+position = Vector2(121, 259)
+shape = SubResource("RectangleShape2D_kva4y")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
@@ -44,19 +50,19 @@ shape = SubResource("RectangleShape2D_kva4y")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(1318.84, 247)
+position = Vector2(1321, 247)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(2294.21, 218.905)
+position = Vector2(2293, 223)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(2673, -71)
+position = Vector2(2664.5, -71)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Checkpoint"]
@@ -68,7 +74,7 @@ shape = SubResource("RectangleShape2D_kva4y")
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(3980, 106)
+position = Vector2(3982, 106)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="DeathArea" type="Area2D" parent="."]
@@ -79,14 +85,14 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 light_mask = 4
 visibility_layer = 4
-position = Vector2(49660, 805.5)
+position = Vector2(49660, 1400)
 shape = SubResource("RectangleShape2D_ovrv6")
 
 [node name="WinArea" type="Area2D" parent="."]
 position = Vector2(3995, 91)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinArea"]
-position = Vector2(-11.5, 14)
+position = Vector2(45, 306)
 shape = SubResource("RectangleShape2D_yugdq")
 
 [connection signal="coll_changed" from="." to="player" method="_on_main_coll_changed"]

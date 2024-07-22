@@ -108,11 +108,13 @@ bus = &"SFX"
 stream = ExtResource("5_8ejj2")
 volume_db = -30.0
 autoplay = true
+bus = &"MusicLight"
 
 [node name="darkmusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7c864")
 volume_db = -30.0
 autoplay = true
+bus = &"MusicDark"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
