@@ -88,8 +88,6 @@ func _on_main_coll_changed():
 		offSFX.play()
 	
 
-
-
 func _on_checkpoint_body_entered(body):
 	if body is Player:
 		checkpoint = body.global_transform.origin
