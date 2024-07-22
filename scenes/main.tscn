@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bo64u6wmcqtkf" path="res://scenes/dark.tscn" id="2_fiuhx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kva4y"]
-size = Vector2(66, 51.1875)
+size = Vector2(17, 73.5938)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovrv6"]
 size = Vector2(100680, 100)
@@ -38,31 +38,25 @@ shape = SubResource("RectangleShape2D_kva4y")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(121, 259)
+position = Vector2(121, 247.797)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(700, 247)
+position = Vector2(694, 247)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(1321, 247)
+position = Vector2(1320, 247)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
 position = Vector2(2293, 223)
-shape = SubResource("RectangleShape2D_kva4y")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Checkpoint"]
-light_mask = 0
-visibility_layer = 0
-position = Vector2(2664.5, -71)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Checkpoint"]
@@ -74,7 +68,8 @@ shape = SubResource("RectangleShape2D_kva4y")
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Checkpoint"]
 light_mask = 0
 visibility_layer = 0
-position = Vector2(3982, 106)
+position = Vector2(3978.5, 106)
+scale = Vector2(0.812509, 0.870802)
 shape = SubResource("RectangleShape2D_kva4y")
 
 [node name="DeathArea" type="Area2D" parent="."]
